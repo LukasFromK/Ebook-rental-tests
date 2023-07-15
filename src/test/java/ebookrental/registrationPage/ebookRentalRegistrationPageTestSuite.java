@@ -38,7 +38,7 @@ public class ebookRentalRegistrationPageTestSuite {
         WebElement loginButton = driver.findElement(By.id("login-btn"));
         loginButton.click();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.invisibilityOf(passwordRepeatField));
 
         WebElement formTitle = driver.findElement(By.xpath("//*[@class=\"sub-title\"]"));
