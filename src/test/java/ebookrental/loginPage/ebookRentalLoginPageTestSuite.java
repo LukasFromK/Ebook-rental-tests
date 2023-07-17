@@ -17,6 +17,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ebookRentalLoginPageTestSuite {
     WebDriver driver;
+    WebElement loginButton;
+    WebElement loginField;
+    WebElement passwordField;
+    WebElement passwordRepeatField;
+    WebElement alertField;
+    WebElement titleField;
     String testUserLogin;
     String testUserPassword;
     String secondTestUserLogin;
@@ -29,22 +35,33 @@ public class ebookRentalLoginPageTestSuite {
         WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(15));
         driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("password-repeat")));
 
-        WebElement loginField = driver.findElement(By.id("login"));
+        loginField = driver.findElement(By.id("login"));
         loginField.sendKeys(login);
 
-        WebElement passwordField = driver.findElement(By.id("password"));
+        passwordField = driver.findElement(By.id("password"));
         passwordField.sendKeys(password);
 
-        WebElement passwordRepeatField = driver.findElement(By.id("password-repeat"));
+        passwordRepeatField = driver.findElement(By.id("password-repeat"));
         passwordRepeatField.sendKeys(password);
 
         WebElement secondRegisterButton = driver.findElement(By.id("register-btn"));
         secondRegisterButton.click();
         driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
+        loginButton = driver.findElement(By.id("login-btn"));
         loginButton.click();
         driverWait.until(ExpectedConditions.invisibilityOf(passwordRepeatField));
+    }
+
+    private void logInTestUser(String login, String password){
+        loginField = driver.findElement(By.id("login"));
+        loginField.sendKeys(login);
+
+        passwordField = driver.findElement(By.id("password"));
+        passwordField.sendKeys(password);
+
+        WebElement loginButton = driver.findElement(By.id("login-btn"));
+        loginButton.click();
     }
 
     @BeforeEach
@@ -61,16 +78,35 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherSignUpButtonOpensRegisterWebpage() {
-        WebElement registerButton = driver.findElement(By.id("register-btn"));
-        registerButton.click();
+    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithCorrectLoginAndCorrectPasswordIfOnlyHeIsRegisteredInTheDatabase() {
+        testUserLogin = "testlogin@testlogin.test";
+        testUserPassword = "testpassword";
+        registerTestUser(testUserLogin, testUserPassword);
+
+        logInTestUser(testUserLogin, testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("password-repeat")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement formTitle = driver.findElement(By.xpath("//*[@class=\"sub-title\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
-        assertEquals("SIGN UP", formTitle.getText());
+        assertEquals("TITLES CATALOG", titleField.getText());
+    }
+
+    @Test
+    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithWrongLoginAndWrongPasswordIfOnlyHeIsRegisteredInTheDatabase() {
+        testUserLogin = "testlogin@testlogin.test";
+        testUserPassword = "testpassword";
+        registerTestUser(testUserLogin, testUserPassword);
+
+        logInTestUser("wrongtestlogin", "wrongtestpassword");
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
+
+        alertField = driver.findElement(By.className("alert__content"));
+
+        assertEquals("Login failed", alertField.getText());
     }
 
     @Test
@@ -82,19 +118,12 @@ public class ebookRentalLoginPageTestSuite {
         secondTestUserPassword = "secondTestPassword";
         registerTestUser(secondTestUserLogin, secondTestUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(secondTestUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(secondTestUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(secondTestUserLogin, secondTestUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
@@ -108,65 +137,12 @@ public class ebookRentalLoginPageTestSuite {
         secondTestUserPassword = "secondTestPassword";
         registerTestUser(secondTestUserLogin, secondTestUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys("wrongsecondtestlogin");
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("wrongsecondtestpassword");
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser("wrongsecondtestlogin", "wrongsecondtestpassword");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
-
-        assertEquals("Login failed", alertField.getText());
-    }
-
-    @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithCorrectLoginAndCorrectPasswordIfOnlyHeIsRegisteredInTheDatabase() {
-        testUserLogin = "testlogin@testlogin.test";
-        testUserPassword = "testpassword";
-        registerTestUser(testUserLogin, testUserPassword);
-
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
-
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
-
-        assertEquals("TITLES CATALOG", titleField.getText());
-    }
-
-    @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithWrongLoginAndWrongPasswordIfOnlyHeIsRegisteredInTheDatabase() {
-        testUserLogin = "testlogin@testlogin.test";
-        testUserPassword = "testpassword";
-        registerTestUser(testUserLogin, testUserPassword);
-
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys("wrongtestlogin");
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("wrongtestpassword");
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
-
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("Login failed", alertField.getText());
     }
@@ -177,19 +153,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys("wrongtestlogin");
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser("wrongtestlogin", testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("Login failed", alertField.getText());
     }
@@ -200,19 +169,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("wrongtestpassword");
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, "wrongtestpassword");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("Login failed", alertField.getText());
     }
@@ -223,13 +185,13 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
+        loginButton = driver.findElement(By.id("login-btn"));
         loginButton.click();
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("You can't leave fields empty", alertField.getText());
     }
@@ -240,16 +202,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, "");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("You can't leave fields empty", alertField.getText());
     }
@@ -260,16 +218,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys("wrongtestlogin@testlogin.test");
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser("wrongtestlogin@testlogin.test", "");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("You can't leave fields empty", alertField.getText());
     }
@@ -280,16 +234,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser("", testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("You can't leave fields empty", alertField.getText());
     }
@@ -300,16 +250,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("wrongtestpassword");
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser("", "wrongtestpassword");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("You can't leave fields empty", alertField.getText());
     }
@@ -320,19 +266,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
@@ -343,19 +282,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "0";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
@@ -366,19 +298,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
@@ -389,19 +314,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "f";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
@@ -412,19 +330,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
@@ -435,19 +346,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "P";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
@@ -458,19 +362,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
@@ -481,65 +378,44 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "@";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsLongStringOfCharactersContainingLowercaseAndCapitalLettersOfTheEnglishAlphabetNumbersSpecialSignsAndSpacer() {
+    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsLongStringOfCharactersContainingLowercaseAndCapitalLettersOfTheEnglishAlphabetNumbersSpecialSignsAndSpaces() {
         testUserLogin = "q1! w2@ e3# r4$t5%y6^u7&i8*o9(p0)-+=?pOIlkjhgfdsamnbvcxzasdfghjklqwertyuiopasdfg1234567890!@#$%^& 8(";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsLongStringOfCharactersContainingLowercaseAndCapitalLettersOfTheEnglishAlphabetNumbersSpecialSignsAndSpacer() {
+    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsLongStringOfCharactersContainingLowercaseAndCapitalLettersOfTheEnglishAlphabetNumbersSpecialSignsAndSpaces() {
         testUserLogin = "newlogin@newlogin.login";
         testUserPassword = "q1! w2@ e3# r4$t5%y6^u7&i8*o9(p0)-+=?pOIlkjhgfdsamnbvcxzasdfghjklqwertyuiopasdfg1234567890!@#$%^& 8(";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
@@ -550,19 +426,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "longtestpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
@@ -573,19 +442,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "thesamenumber";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
@@ -596,19 +458,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "abc";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys("ab");
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser("ab", testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("Login failed", alertField.getText());
     }
@@ -619,19 +474,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "abc";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("ab");
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, "ab");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("Login failed", alertField.getText());
     }
@@ -642,19 +490,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "abc";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys("abc ");
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser("abc ", testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
@@ -665,19 +506,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "abc";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("abc ");
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, "abc ");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("Login failed", alertField.getText());
     }
@@ -688,19 +522,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "abcd";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys("ab cd");
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser("ab cd", testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("Login failed", alertField.getText());
     }
@@ -711,19 +538,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "abcd";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("ab cd");
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, "ab cd");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("Login failed", alertField.getText());
     }
@@ -734,19 +554,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "abcd";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(" ");
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(" ", testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("Login failed", alertField.getText());
     }
@@ -757,19 +570,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "abcd";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(" ");
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, " ");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("Login failed", alertField.getText());
     }
@@ -780,19 +586,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "abcd";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(" ");
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(" ");
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(" ", " ");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("Login failed", alertField.getText());
     }
@@ -803,19 +602,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserPassword);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserLogin);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserPassword, testUserLogin);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("Login failed", alertField.getText());
     }
@@ -826,11 +618,7 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserPassword, "");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
@@ -846,16 +634,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserLogin);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser("", testUserLogin);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("You can't leave fields empty", alertField.getText());
     }
@@ -866,19 +650,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys("capitalletters");
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser("capitalletters", testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
@@ -889,19 +666,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys("LOWERCASELETTERS");
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(testUserPassword);
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser("LOWERCASELETTERS", testUserPassword);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]")));
 
-        WebElement titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
+        titleField = driver.findElement(By.xpath("//*[@class=\"sub-title flex-grow--1 margin-right--1\"]"));
 
         assertEquals("TITLES CATALOG", titleField.getText());
     }
@@ -912,19 +682,12 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "CAPITALLETTERS";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("capitalletters");
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, "capitalletters");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("Login failed", alertField.getText());
     }
@@ -935,20 +698,26 @@ public class ebookRentalLoginPageTestSuite {
         testUserPassword = "lowercaseletters";
         registerTestUser(testUserLogin, testUserPassword);
 
-        WebElement loginField = driver.findElement(By.id("login"));
-        loginField.sendKeys(testUserLogin);
-
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("LOWERCASELETTERS");
-
-        WebElement loginButton = driver.findElement(By.id("login-btn"));
-        loginButton.click();
+        logInTestUser(testUserLogin, "LOWERCASELETTERS");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert__content")));
 
-        WebElement alertField = driver.findElement(By.className("alert__content"));
+        alertField = driver.findElement(By.className("alert__content"));
 
         assertEquals("Login failed", alertField.getText());
+    }
+
+    @Test
+    public void verificationWhetherSignUpButtonOpensRegisterWebpage() {
+        WebElement registerButton = driver.findElement(By.id("register-btn"));
+        registerButton.click();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("password-repeat")));
+
+        WebElement formTitle = driver.findElement(By.xpath("//*[@class=\"sub-title\"]"));
+
+        assertEquals("SIGN UP", formTitle.getText());
     }
 }
