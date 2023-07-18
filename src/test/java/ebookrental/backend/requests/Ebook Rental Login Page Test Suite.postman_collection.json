@@ -1,0 +1,1218 @@
+{
+	"info": {
+		"_postman_id": "563cabfa-5992-4cec-8cb8-b8b1b9b690dc",
+		"name": "Ebook Rental Login Page Test Suite",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectLoginAndCorrectPasswordIfOnlyHeIsRegisteredInTheDatabase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"newtestuserlogin@test\",\r\n    \"password\" : \"newtestuserpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemWithAWrongLoginAndWrongPasswordIfOnlyHeIsRegisteredInTheDatabase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"wronglogin\",\r\n    \"password\" : \"wrongpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectLoginAndCorrectPasswordIfAnotherUserIsAlsoRegisteredInTheDatabase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"newtestuserlogin@test\",\r\n    \"password\" : \"newtestuserpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemWithAWrongLoginAndWrongPasswordIfAnotherUserIsAlsoRegisteredInTheDatabase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"wronglogin\",\r\n    \"password\" : \"wrongpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemWithAWrongLoginAndTheCorrectPassword",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"wronglogin\",\r\n    \"password\" : \"newtestuserpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectLoginAndWrongPassword",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"newtestuserlogin@test\",\r\n    \"password\" : \"wrongpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemWithoutEnteringALoginAndPassword",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"\",\r\n    \"password\" : \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemByEnteringOnlyCorrectLogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"newtestuserlogin@test\",\r\n    \"password\" : \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemByEnteringOnlyAWrongLogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"wronglogin\",\r\n    \"password\" : \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemByEnteringOnlyTheCorrectPassword",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"\",\r\n    \"password\" : \"newtestuserpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemByEnteringOnlyAWrongPassword",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"\",\r\n    \"password\" : \"wrongpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemInTheLoginIsASingleNumber",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"0\",\r\n    \"password\" : \"singlenumber\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemInThePasswordIsASingleNumber",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"singlenumber\",\r\n    \"password\" : \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsASingleLowercaseLetterFromTheEnglishAlphabet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"g\",\r\n    \"password\" : \"singlelowercaseletter\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsASingleLowercaseLetterFromTheEnglishAlphabet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"singlelowercaseletter\",\r\n    \"password\" : \"i\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsASingleCapitalLetterFromTheEnglishAlphabet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"P\",\r\n    \"password\" : \"singlecapitalletter\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsASingleCapitalLetterFromTheEnglishAlphabet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"singlecapitalletter\",\r\n    \"password\" : \"Y\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsASingleSpecialSign",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"*\",\r\n    \"password\" : \"singlespecialsign\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsASingleSpecialSign",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"singlespecialsign\",\r\n    \"password\" : \"!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsALongStringOfCharactersContainingLowercaseAndCapitalLettersOfTheEnglishAlphabetNumbersSpecialSignsAndSpaces",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"q1! w2@ e3# r4$t5%y6^u7&i8*o9(p0)-+=?pOIlkjhgfdsamnbvcxzasdfghjklqwertyuiopasdtg1234567890!@#$%^& 8(\",\r\n    \"password\" : \"absolutelylong\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsALongStringOfCharactersContainingLowercaseAndCapitalLettersOfTheEnglishAlphabetNumbersSpecialSignsAndSpaces",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"verylong\",\r\n    \"password\": \"q1! w2@ e3# r4$t5%y6^u7&i8*o9(p0)-+=?pOIlkjhgfdsamnbvcxzasdfUhjklqwertyuiopasdtg1234567890!@#$%^& 8(\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfTheLoginAndPasswordHaveADifferentNumberOfCharacters",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"lkjhg\",\r\n    \"password\" : \"lkjhgf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfTheLoginAndPasswordHaveTheSameNumberOfCharacters",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"thesamenumberofcharacters\",\r\n    \"password\" : \"thesamenumberofcharacters\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectPasswordAndIncorrectLoginThatDiffersFromTheCorrectOneByOneCharacter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"newtestuserogin@test\",\r\n    \"password\" : \"newtestuserpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectLoginAndIncorrectPasswordThatDiffersFromTheCorrectOneByOneCharacter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"newtestuserlogin@test\",\r\n    \"password\" : \"newtestuserassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectPasswordAndIncorrectLoginThatDiffersFromTheCorrectOneByOneSpaceAtTheEndOfTheLogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"newtestuserlogin@test \",\r\n    \"password\" : \"newtestuserpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectLoginAndIncorrectPasswordThatDiffersFromTheCorrectOneByOneSpaceAtTheEndOfThePassword",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"newtestuserlogin@test\",\r\n    \"password\" : \"newtestuserpassword \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectPasswordAndIncorrectLoginThatDiffersFromTheCorrectOneByOneSpaceInTheMiddleOfTheLogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"newtestuserlo gin@test\",\r\n    \"password\" : \"newtestuserpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectLoginAndIncorrectPasswordThatDiffersFromTheCorrectOneByOneSpaceInTheMiddleOfThePassword",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"newtestuserlogin@test\",\r\n    \"password\" : \"newtestuserpas sword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfHeEntersASingleSpaceInTheLoginFieldAndEntersTheCorrectPasswordInThePasswordField",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \" \",\r\n    \"password\" : \"newtestuserpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfHeEntersASingleSpaceInThePasswordFieldAndEntersTheCorrectLoginInTheLoginField",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"newtestuserlogin@test\",\r\n    \"password\" : \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfHeEntersASingleSpaceInTheLoginFieldAndInThePasswordField",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \" \",\r\n    \"password\" : \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfHeEntersTheCorrectLoginInThePasswordFieldAndEntersTheCorrectPasswordInTheLoginField",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\" : \"newtestuserpassword\",\r\n    \"password\": \"newtestuserlogin@test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfHeEntersCorrectPasswordInTheLoginFieldAndLeavingThePasswordFieldEmpty",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\" : \"newtestuserpassword\",\r\n    \"password\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemIfHeEntersTheCorrectLoginInThePasswordFieldAndLeavesTheLoginFieldEmpty",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\" : \"\",\r\n    \"password\": \"newtestuserlogin@test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemByEnteringTheLoginInLowercaseLettersIfHeEnteredTheLoginInCapitalLettersDuringRegistration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"p\",\r\n    \"password\" : \"singlecapitalletter\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemByEnteringTheLoginInCapitalLettersIfHeEnteredTheLoginInLowercaseLettersDuringRegistration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"SINGLENUMBER\",\r\n    \"password\" : \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemByEnteringThePasswordInLowercaseLettersIfHeEnteredThePasswordInCapitalLettersDuringRegistration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"singlecapitalletter\",\r\n    \"password\" : \"y\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificationOfWhetherUserWillBeLoggedIntoTheSystemByEnteringThePasswordInCapitalLettersIfHeEnteredThePasswordInLowercaseLettersDuringRegistration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"newtestuserlogin@test\",\r\n    \"password\" : \"NEWTESTUSERPASSWORD\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental.kodillaadministrators.repl.co/user/login",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental",
+						"kodillaadministrators",
+						"repl",
+						"co"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
