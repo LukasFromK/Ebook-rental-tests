@@ -69,7 +69,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredOnTheWebsite() {
+    public void verificationOfWhetherNewUserWillBeRegisteredOnTheWebsite() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         testUserRepeatPassword = "testpassword";
@@ -82,7 +82,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserAlreadyInTheWebsitesDatabaseWillBeRegisteredAgainWithTheSameData() {
+    public void verificationOfWhetherTheUserWhoIsAlreadyInTheWebsitesDatabaseWillBeRegisteredAgainWithTheSameData() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         testUserRepeatPassword = "testpassword";
@@ -97,7 +97,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherAnotherNewUserWillBeRegisteredWhenOneUserWithDifferentDataAlreadyExistsInTheDatabase() {
+    public void verificationOfWhetherAnotherNewUserWillBeRegisteredWhenOneUserWithDifferentDataAlreadyExistsInTheDatabase() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         testUserRepeatPassword = "testpassword";
@@ -116,7 +116,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfWhenRegisteringHeEntersUniquePasswordAndLoginThatIsUsedByAnotherUserAlreadyRegisteredInTheDatabase() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfHeEntersWhenRegisteringAUniquePasswordAndTheLoginThatIsUsedByAnotherUserAlreadyRegisteredInTheDatabase() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         testUserRepeatPassword = "testpassword";
@@ -135,7 +135,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfWhenRegisteringHeEntersUniqueLoginAndPasswordThatIsUsedByAnotherUserAlreadyRegisteredInTheDatabase() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfHeEntersWhenRegisteringAUniqueLoginAndThePasswordThatIsUsedByAnotherUserAlreadyRegisteredInTheDatabase() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         testUserRepeatPassword = "testpassword";
@@ -153,9 +153,9 @@ public class ebookRentalRegistrationPageTestSuite {
         assertEquals("You have been successfully registered!", alertField.getText());
     }
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfTheDataHeProvidesInThePasswordAndRepeatPasswordFieldsAreDifferent() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfTheDataHeProvidesInThePasswordAndRepeatPasswordFieldsAreDifferent() {
         testUserLogin = "uniquetestlogin@testlogin.test";
-        testUserPassword = "completlyoldtestpassword";
+        testUserPassword = "absolutlyoldtestpassword";
         testUserRepeatPassword = "completlynewtestpassword";
 
         registerTestUser(testUserLogin, testUserPassword, testUserRepeatPassword);
@@ -166,7 +166,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfHeDoesntCompleteTheDataRequiredForRegistration() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfHeDoesntCompleteTheDataRequiredForRegistration() {
         registerButton = driver.findElement(By.id("register-btn"));
         registerButton.click();
 
@@ -179,7 +179,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfDuringRegistrationHeOnlyCompletesTheLoginFieldCreatingUniqueLogin() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfHeOnlyCompletesTheLoginFieldCreatingAUniqueLoginDuringTheRegistration() {
         testUserLogin = "absolutlyuniquetestlogin@testlogin.test";
         testUserPassword = "";
         testUserRepeatPassword = "";
@@ -192,7 +192,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfDuringRegistrationHeOnlyCompletesThePasswordFieldCreatingUniquePassword() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfDuringRegistrationHeOnlyCompletesThePasswordFieldCreatingAUniquePassword() {
         testUserLogin = "";
         testUserPassword = "absolutlyuniquetestpassword";
         testUserRepeatPassword = "";
@@ -205,7 +205,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfDuringRegistrationHeOnlyCompletesTheRepeatPasswordFieldCreatingUniquePassword() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfDuringRegistrationHeOnlyCompletesTheRepeatPasswordFieldCreatingAUniquePassword() {
         testUserLogin = "";
         testUserPassword = "";
         testUserRepeatPassword = "absolutlynewanduniquetestpassword";
@@ -218,7 +218,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfDuringRegistrationHeOnlyCompletesThePasswordAndRepeatPasswordFieldsCreatingUniquePassword() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfDuringRegistrationHeOnlyCompletesThePasswordAndRepeatPasswordFieldsCreatingAUniquePassword() {
         testUserLogin = "";
         testUserPassword = "completlynewanduniquetestpassword";
         testUserRepeatPassword = "completlynewanduniquetestpassword";
@@ -231,7 +231,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfDuringRegistrationHeOnlyCompletesTheLoginAndPasswordFieldsCreatingUniqueLoginAndUniquePassword() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfDuringRegistrationHeOnlyCompletesTheLoginAndPasswordFieldsCreatingAUniqueLoginAndAUniquePassword() {
         testUserLogin = "amazingtestlogin@testlogin.test";
         testUserPassword = "amazingtestpassword";
         testUserRepeatPassword = "";
@@ -244,7 +244,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfDuringRegistrationHeOnlyCompletesTheLoginAndRepeatPasswordFieldsCreatingUniqueLoginAndUniquePassword() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfDuringRegistrationHeOnlyCompletesTheLoginAndRepeatPasswordFieldsCreatingAUniqueLoginAndAUniquePassword() {
         testUserLogin = "appriopriatetestlogin@testlogin.test";
         testUserPassword = "";
         testUserRepeatPassword = "appriopriatetestpassword";
@@ -257,7 +257,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfHeOnlyCompletesLoginFieldDuringRegistrationUsingTheLoginOfExistingUserFromDatabase() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfHeOnlyCompletesTheLoginFieldDuringRegistrationUsingTheLoginOfExistingUserFromTheDatabase() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         testUserRepeatPassword = "testpassword";
@@ -275,7 +275,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfHeOnlyCompletesThePasswordFieldDuringRegistrationUsingThePasswordOfExistingUserFromDatabase() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfHeOnlyCompletesThePasswordFieldDuringRegistrationUsingThePasswordOfExistingUserFromTheDatabase() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         testUserRepeatPassword = "testpassword";
@@ -293,7 +293,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfHeOnlyCompletesTheRepeatPasswordFieldDuringRegistrationUsingThePasswordOfExistingUserFromDatabase() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfHeOnlyCompletesTheRepeatPasswordFieldDuringRegistrationUsingThePasswordOfExistingUserFromTheDatabase() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         testUserRepeatPassword = "testpassword";
@@ -311,7 +311,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfHeOnlyCompletesThePasswordAndRepeatPasswordFieldsDuringRegistrationUsingThePasswordOfExistingUserFromDatabase() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfHeOnlyCompletesThePasswordAndRepeatPasswordFieldsDuringRegistrationUsingThePasswordOfExistingUserFromTheDatabase() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         testUserRepeatPassword = "testpassword";
@@ -328,7 +328,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsSingleSpace() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsSingleSpace() {
         testUserLogin = " ";
         testUserPassword = "testpassword";
         testUserRepeatPassword = "testpassword";
@@ -341,7 +341,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsAWordWithSingleSpaceAtTheEndAndThereIsUserInTheDatabaseWhoseLoginIsTheSameWordButWithSpaceBetweenTheLetters() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsAWordWithASingleSpaceAtTheEndAndThereIsUserInTheDatabaseWhoseLoginIsTheSameWordButWithSpaceBetweenTheLetters() {
         testUserLogin = "us er";
         testUserPassword ="testpassword";
         testUserRepeatPassword = "testpassword";
@@ -360,7 +360,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfThePasswordIsSingleSpace() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfThePasswordIsSingleSpace() {
         testUserLogin = "testuser11@testlogin.test";
         testUserPassword = " ";
         testUserRepeatPassword = " ";
@@ -373,7 +373,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsSingleNumber() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsASingleNumber() {
         testUserLogin = "1";
         testUserPassword = "testpassword";
         testUserRepeatPassword = "testpassword";
@@ -386,7 +386,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfThePasswordIsSingleNumber() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfThePasswordIsASingleNumber() {
         testUserLogin = "userlogin";
         testUserPassword = "0";
         testUserRepeatPassword = "0";
@@ -399,7 +399,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsSingleLowercaseLetterFromEnglishAlphabet() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsASingleLowercaseLetterFromTheEnglishAlphabet() {
         testUserLogin = "z";
         testUserPassword = "testpassword";
         testUserRepeatPassword = "testpassword";
@@ -412,7 +412,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfThePasswordIsSingleLowercaseLetterFromEnglishAlphabet() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfThePasswordIsASingleLowercaseLetterFromTheEnglishAlphabet() {
         testUserLogin = "loginoftestuser";
         testUserPassword = "v";
         testUserRepeatPassword = "v";
@@ -425,7 +425,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsSingleCapitalLetterFromEnglishAlphabet() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsASingleCapitalLetterFromTheEnglishAlphabet() {
         testUserLogin = "F";
         testUserPassword = "testpassword";
         testUserRepeatPassword = "testpassword";
@@ -438,7 +438,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfThePasswordIsSingleCapitalLetterFromEnglishAlphabet() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfThePasswordIsASingleCapitalLetterFromTheEnglishAlphabet() {
         testUserLogin = "user1985";
         testUserPassword = "F";
         testUserRepeatPassword = "F";
@@ -451,7 +451,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsAWordConsistingOfLowercaseLettersOfTheEnglishAlphabetWhileThereIsAlreadyRegisteredUserInTheDatabaseWhoseLoginIsTheSameWordButWrittenInCapitalLettersOfTheEnglishAlphabet() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsAWordConsistingOfLowercaseLettersOfTheEnglishAlphabetWhileThereIsAlreadyRegisteredUserInTheDatabaseWhoseLoginIsTheSameWordButWrittenInCapitalLettersOfTheEnglishAlphabet() {
         testUserLogin = "SPARROW";
         testUserPassword = "testpassword";
         testUserRepeatPassword= "testpassword";
@@ -470,7 +470,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsAWordConsistingOfCapitalLettersOfTheEnglishAlphabetWhileThereIsAlreadyRegisteredUserInTheDatabaseWhoseLoginIsTheSameWordButWrittenInLowercaseLettersOfTheEnglishAlphabet() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsAWordConsistingOfCapitalLettersOfTheEnglishAlphabetWhileThereIsAlreadyRegisteredUserInTheDatabaseWhoseLoginIsTheSameWordButWrittenInLowercaseLettersOfTheEnglishAlphabet() {
         testUserLogin = "garlic";
         testUserPassword = "garlictestpassword";
         testUserRepeatPassword = "garlictestpassword";
@@ -489,7 +489,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsSingleSpecialSign() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsASingleSpecialSign() {
         testUserLogin = "$";
         testUserPassword = "testpassword";
         testUserRepeatPassword = "testpassword";
@@ -502,7 +502,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfThePasswordIsSingleSpecialSign() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfThePasswordIsASingleSpecialSign() {
         testUserLogin = "user2023";
         testUserPassword = "#";
         testUserRepeatPassword = "#";
@@ -515,7 +515,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginAndPasswordWillHaveDifferentNumberOfCharacters() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginAndPasswordWillHaveDifferentNumberOfCharacters() {
         testUserLogin = "user1873";
         testUserPassword = "73";
         testUserRepeatPassword = "73";
@@ -528,7 +528,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginAndPasswordWillHaveTheSameNumberOfCharacters() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginAndPasswordWillHaveTheSameNumberOfCharacters() {
         testUserLogin = "thesame@test";
         testUserPassword = "test@thesame";
         testUserRepeatPassword = "test@thesame";
@@ -541,7 +541,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsLongStringOfCharactersContainingLowercaseAndCapitalLettersOfEnglishAlphabetNumbersSpecialSignsAndSpaces() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfTheLoginIsALongStringOfCharactersContainingLowercaseAndCapitalLettersOfEnglishAlphabetNumbersSpecialSignsAndSpaces() {
         testUserLogin = "q1! w2@ e3# r4$t5%y6^u7&i8*o9(p0)-+=?pOIlkjhgfdsamnbvcxzasdfghjklqwertyuiopasdfg1234567890!@#$%^& 8(";
         testUserPassword = "#";
         testUserRepeatPassword = "#";
@@ -554,7 +554,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherNewUserWillBeRegisteredInTheDatabaseIfThePasswordIsLongStringOfCharactersContainingLowercaseAndCapitalLettersOfEnglishAlphabetNumbersSpecialSignsAndSpaces() {
+    public void verificationOfWhetherNewUserWillBeRegisteredInTheDatabaseIfThePasswordIsALongStringOfCharactersContainingLowercaseAndCapitalLettersOfEnglishAlphabetNumbersSpecialSignsAndSpaces() {
         testUserLogin = "u";
         testUserPassword = "q1! w2@ e3# r4$t5%y6^u7&i8*o9(p0)-+=?pOIlkjhgfdsamnbvcxzasdfghjklqwertyuiopasdfg1234567890!@#$%^& 8(";
         testUserRepeatPassword = "q1! w2@ e3# r4$t5%y6^u7&i8*o9(p0)-+=?pOIlkjhgfdsamnbvcxzasdfghjklqwertyuiopasdfg1234567890!@#$%^& 8(";
@@ -567,7 +567,7 @@ public class ebookRentalRegistrationPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherLoginButtonOpensLoginWebpage() {
+    public void verificationOfWhetherTheLoginButtonOpensTheLoginWebpage() {
         WebElement passwordRepeatField = driver.findElement(By.id("password-repeat"));
 
         WebElement loginButton = driver.findElement(By.id("login-btn"));
