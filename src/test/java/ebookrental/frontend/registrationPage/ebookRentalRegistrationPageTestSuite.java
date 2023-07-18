@@ -1,4 +1,4 @@
-package ebookrental.registrationPage;
+package ebookrental.frontend.registrationPage;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
