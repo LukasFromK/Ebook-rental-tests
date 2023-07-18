@@ -78,7 +78,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithCorrectLoginAndCorrectPasswordIfOnlyHeIsRegisteredInTheDatabase() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectLoginAndTheCorrectPasswordIfOnlyHeIsRegisteredInTheDatabase() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -94,7 +94,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithWrongLoginAndWrongPasswordIfOnlyHeIsRegisteredInTheDatabase() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemWithWrongALoginAndWrongPasswordIfOnlyHeIsRegisteredInTheDatabase() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -110,7 +110,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithCorrectLoginAndCorrectPasswordIfAnotherUserIsAlsoRegisteredInTheDatabase() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectLoginAndTheCorrectPasswordIfAnotherUserIsAlsoRegisteredInTheDatabase() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -129,7 +129,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithWrongLoginAndWrongPasswordIfAnotherUserIsAlsoRegisteredInTheDatabase() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemWithAWrongLoginAndAWrongPasswordIfAnotherUserIsAlsoRegisteredInTheDatabase() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -148,7 +148,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithWrongLoginAndCorrectPassword() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemWithAWrongLoginAndTheCorrectPassword() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -164,7 +164,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithCorrectLoginAndWrongPassword() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectLoginAndAWrongPassword() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -180,7 +180,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithoutEnteringLoginAndPassword() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemWithoutEnteringLoginAndPassword() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -197,7 +197,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemEnteringOnlyCorrectLogin() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemEnteringOnlyTheCorrectLogin() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -213,7 +213,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemEnteringOnlyWrongLogin() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemEnteringOnlyWrongLogin() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -229,7 +229,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemEnteringOnlyCorrectPassword() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemEnteringOnlyTheCorrectPassword() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -245,7 +245,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemEnteringOnlyWrongPassword() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemEnteringOnlyWrongPassword() {
         testUserLogin = "testlogin@testlogin.test";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -261,7 +261,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsSingleNumber() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsASingleNumber() {
         testUserLogin = "9";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -277,7 +277,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsSingleNumber() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsASingleNumber() {
         testUserLogin = "greatloginforuser";
         testUserPassword = "0";
         registerTestUser(testUserLogin, testUserPassword);
@@ -293,7 +293,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsSingleLowercaseLetterFromEnglishAlphabet() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsASingleLowercaseLetterFromEnglishAlphabet() {
         testUserLogin = "k";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -309,7 +309,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsSingleLowercaseLetterFromEnglishAlphabet() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsASingleLowercaseLetterFromEnglishAlphabet() {
         testUserLogin = "simpletestlogin";
         testUserPassword = "f";
         registerTestUser(testUserLogin, testUserPassword);
@@ -325,7 +325,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsSingleCapitalLetterFromEnglishAlphabet() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsASingleCapitalLetterFromEnglishAlphabet() {
         testUserLogin = "L";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -341,7 +341,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsSingleCapitalLetterFromEnglishAlphabet() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsASingleCapitalLetterFromEnglishAlphabet() {
         testUserLogin = "smarttestlogin";
         testUserPassword = "P";
         registerTestUser(testUserLogin, testUserPassword);
@@ -357,7 +357,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsSingleSpecialSign() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsASingleSpecialSign() {
         testUserLogin = "&";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -373,7 +373,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsSingleSpecialSign() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsASingleSpecialSign() {
         testUserLogin = "specialtestlogin";
         testUserPassword = "@";
         registerTestUser(testUserLogin, testUserPassword);
@@ -389,7 +389,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsLongStringOfCharactersContainingLowercaseAndCapitalLettersOfTheEnglishAlphabetNumbersSpecialSignsAndSpaces() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfTheLoginIsALongStringOfCharactersContainingLowercaseAndCapitalLettersOfTheEnglishAlphabetNumbersSpecialSignsAndSpaces() {
         testUserLogin = "q1! w2@ e3# r4$t5%y6^u7&i8*o9(p0)-+=?pOIlkjhgfdsamnbvcxzasdfghjklqwertyuiopasdfg1234567890!@#$%^& 8(";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -405,7 +405,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsLongStringOfCharactersContainingLowercaseAndCapitalLettersOfTheEnglishAlphabetNumbersSpecialSignsAndSpaces() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfThePasswordIsALongStringOfCharactersContainingLowercaseAndCapitalLettersOfTheEnglishAlphabetNumbersSpecialSignsAndSpaces() {
         testUserLogin = "newlogin@newlogin.login";
         testUserPassword = "q1! w2@ e3# r4$t5%y6^u7&i8*o9(p0)-+=?pOIlkjhgfdsamnbvcxzasdfghjklqwertyuiopasdfg1234567890!@#$%^& 8(";
         registerTestUser(testUserLogin, testUserPassword);
@@ -421,7 +421,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfTheLoginAndPasswordHaveTheDifferentNumberOfCharacters() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfTheLoginAndPasswordHaveTheDifferentNumberOfCharacters() {
         testUserLogin = "shortlogin";
         testUserPassword = "longtestpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -437,7 +437,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfTheLoginAndPasswordHaveTheSameNumberOfCharacters() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfTheLoginAndPasswordHaveTheSameNumberOfCharacters() {
         testUserLogin = "thesamenumber";
         testUserPassword = "thesamenumber";
         registerTestUser(testUserLogin, testUserPassword);
@@ -453,7 +453,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithCorrectPasswordAndIncorrectLoginThatDiffersFromTheCorrectOneCharacter() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectPasswordAndIncorrectLoginThatDiffersFromTheCorrectOneByOneCharacter() {
         testUserLogin = "abc";
         testUserPassword = "abc";
         registerTestUser(testUserLogin, testUserPassword);
@@ -469,7 +469,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithCorrectLoginAndIncorrectPasswordThatDiffersFromTheCorrectOneCharacter() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectLoginAndIncorrectPasswordThatDiffersFromTheCorrectOneByOneCharacter() {
         testUserLogin = "abc";
         testUserPassword = "abc";
         registerTestUser(testUserLogin, testUserPassword);
@@ -485,7 +485,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithCorrectPasswordAndIncorrectLoginThatDiffersFromTheCorrectOneByOneSpaceAtTheEndOfTheLogin() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectPasswordAndIncorrectLoginThatDiffersFromTheCorrectOneByOneSpaceAtTheEndOfTheLogin() {
         testUserLogin = "abc";
         testUserPassword = "abc";
         registerTestUser(testUserLogin, testUserPassword);
@@ -501,7 +501,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithCorrectLoginAndIncorrectPasswordThatDiffersFromTheCorrectOneByOneSpaceAtTheEndOfThePassword() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectLoginAndIncorrectPasswordThatDiffersFromTheCorrectOneByOneSpaceAtTheEndOfThePassword() {
         testUserLogin = "abc";
         testUserPassword = "abc";
         registerTestUser(testUserLogin, testUserPassword);
@@ -517,7 +517,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithCorrectPasswordAndIncorrectLoginThatDiffersFromTheCorrectOneByOneSpaceInTheMiddleOfTheLogin() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectPasswordAndIncorrectLoginThatDiffersFromTheCorrectOneByOneSpaceInTheMiddleOfTheLogin() {
         testUserLogin = "abcd";
         testUserPassword = "abcd";
         registerTestUser(testUserLogin, testUserPassword);
@@ -533,7 +533,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemWithCorrectLoginAndIncorrectPasswordThatDiffersFromTheCorrectOneByOneSpaceInTheMiddleOfThePassword() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemWithTheCorrectLoginAndIncorrectPasswordThatDiffersFromTheCorrectOneByOneSpaceInTheMiddleOfThePassword() {
         testUserLogin = "abcd";
         testUserPassword = "abcd";
         registerTestUser(testUserLogin, testUserPassword);
@@ -549,7 +549,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfHeEntersSingleSpaceInTheLoginFieldAndEntersCorrectPasswordInThePasswordField() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfHeEntersASingleSpaceInTheLoginFieldAndEntersTheCorrectPasswordInThePasswordField() {
         testUserLogin = "abcd";
         testUserPassword = "abcd";
         registerTestUser(testUserLogin, testUserPassword);
@@ -565,7 +565,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfHeEntersSingleSpaceInThePasswordFieldAndEntersCorrectLoginInTheLoginField() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfHeEntersASingleSpaceInThePasswordFieldAndEntersTheCorrectLoginInTheLoginField() {
         testUserLogin = "abcd";
         testUserPassword = "abcd";
         registerTestUser(testUserLogin, testUserPassword);
@@ -581,7 +581,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfHeEntersSingleSpaceInTheLoginFieldAndInThePasswordField() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfHeEntersASingleSpaceInTheLoginFieldAndInThePasswordField() {
         testUserLogin = "abcd";
         testUserPassword = "abcd";
         registerTestUser(testUserLogin, testUserPassword);
@@ -597,7 +597,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfHeEntersCorrectLoginInThePasswordFieldAndEntersCorrectPasswordInTheLoginField() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfHeEntersTheCorrectLoginInThePasswordFieldAndEntersTheCorrectPasswordInTheLoginField() {
         testUserLogin = "testlogin";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -613,7 +613,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfHeEntersCorrectPasswordInTheLoginFieldAndLeavingThePasswordFieldEmpty() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfHeEntersTheCorrectPasswordInTheLoginFieldAndLeavesThePasswordFieldEmpty() {
         testUserLogin = "testlogin";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -629,7 +629,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfHeEntersCorrectLoginInThePasswordFieldAndLeavingTheLoginFieldEmpty() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfHeEntersTheCorrectLoginInThePasswordFieldAndLeavesTheLoginFieldEmpty() {
         testUserLogin = "testlogin";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -645,7 +645,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfByEnteringTheLoginInLowercaseLettersIfHeEnteredTheLoginInCapitalLettersDuringRegistration() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfByEnteringTheLoginInLowercaseLettersIfHeEnteredTheLoginInCapitalLettersDuringRegistration() {
         testUserLogin = "CAPITALLETTERS";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -661,7 +661,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfByEnteringTheLoginInCapitalLettersIfHeEnteredTheLoginInLowercaseLettersDuringRegistration() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfByEnteringTheLoginInCapitalLettersIfHeEnteredTheLoginInLowercaseLettersDuringRegistration() {
         testUserLogin = "lowercaseletters";
         testUserPassword = "testpassword";
         registerTestUser(testUserLogin, testUserPassword);
@@ -677,7 +677,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfByEnteringThePasswordInLowercaseLettersIfHeEnteredThePasswordInCapitalLettersDuringRegistration() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfByEnteringThePasswordInLowercaseLettersIfHeEnteredThePasswordInCapitalLettersDuringRegistration() {
         testUserLogin = "passwordwithcapitalletters@login.test";
         testUserPassword = "CAPITALLETTERS";
         registerTestUser(testUserLogin, testUserPassword);
@@ -693,7 +693,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherUserWillBeLoggedIntoTheSystemIfByEnteringThePasswordInCapitalLettersIfHeEnteredThePasswordInLowercaseLettersDuringRegistration() {
+    public void verificationOfWhetherUserWillBeLoggedIntoTheSystemIfByEnteringThePasswordInCapitalLettersIfHeEnteredThePasswordInLowercaseLettersDuringRegistration() {
         testUserLogin = "passwordwithlowercaseletters@login.test";
         testUserPassword = "lowercaseletters";
         registerTestUser(testUserLogin, testUserPassword);
@@ -709,7 +709,7 @@ public class ebookRentalLoginPageTestSuite {
     }
 
     @Test
-    public void verificationWhetherSignUpButtonOpensRegisterWebpage() {
+    public void verificationOfWhetherTheSignUpButtonOpensRegisterWebpage() {
         WebElement registerButton = driver.findElement(By.id("register-btn"));
         registerButton.click();
 
